@@ -1,60 +1,32 @@
 <template>
-  <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
-    <v-content>
-      <HelloWorld/>
-    </v-content>
-  </v-app>
+  <div>
+    <cards :quotes="state.quote"
+    :author="state.author"
+    ></cards>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import { reactive } from '"@vue/composition-api";'
+import Cards from '@/components/Cards.vue'
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
-  },
+      Cards
+    },
+    // data: ()=>({
+    //   quote:"I am neither late nor early, I appear exactly when I mean to ",
+    //   author:" gandalf"
+    // }),
+   setup(){
+      const state = reactive({
+        quotes:"I am neither late nor early, I appear exactly when I mean to ",
+        author:" gandalf"
+      })  
+      return state
+  }
 
-  data: () => ({
-    //
-  }),
 };
 </script>
