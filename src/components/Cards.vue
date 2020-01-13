@@ -1,29 +1,27 @@
 <template>
-  <div>
     <v-card
-        class="mx-auto"
-        max-width="344"
-    >
-     <v-card-text>
-      <div>quote of the Day</div>
-      <p class="display-1 text--primary">
-        {{quotes}}
-      </p>
-      <div class="text--primary">
-        {{author}}
-      </div>
+    class="mx-auto"
+    color="#26c6da"
+    dark
+    max-width="400"
+  >
+    <v-card-title>
+        Awesome Quotes
+    </v-card-title>
+    <v-card-text class="headline font-weight-bold">
+      {{quotes}}
     </v-card-text>
+
     <v-card-actions>
-      <!-- <v-btn
-        text
-        color="deep-purple accent-4"
-      >
-        Learn More
-      </v-btn> -->
-     </v-card-actions>
-    </v-card>
-  </div>
+      <v-list-item class="grow">
+        <v-list-item-content>
+          <v-list-item-title>{{author}}</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+    </v-card-actions>
+  </v-card>
 </template>
+
 
 <script>
 export default {

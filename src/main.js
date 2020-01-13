@@ -4,6 +4,7 @@ import VueCompositionApi from "@vue/composition-api";
 import vuetify from './plugins/vuetify';
 
 Vue.use(VueCompositionApi)
+Vue.use(vuetify)
 Vue.config.productionTip = false
 
 new Vue({
