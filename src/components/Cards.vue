@@ -6,7 +6,7 @@
     max-width="400"
   >
     <v-card-title>
-        Awesome Quotes
+        Awesome Quotes {{id_}} 
     </v-card-title>
     <v-card-text class="headline font-weight-bold">
       {{quotes}}
@@ -27,10 +27,18 @@
 export default {
     name:'Cards',
     props:{
+        id_:String,
         quotes:String,
         author:String
     }
 
+    // setup(props, {context} ){
+
+    //   const deletePost = () =>{
+    //     emit('deletPost', )
+    //   }
+    //   return { deletePost }
+    // }
 }
 </script>
 
