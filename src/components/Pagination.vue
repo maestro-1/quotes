@@ -1,26 +1,42 @@
 <template>
   <div class="text-center">
-    <v-pagination
-      v-model="page"
+
+    <div v-if="Apage < 1">
+      <v-pagination
+       v-model="count.value"
+       :length="1"
+      ></v-pagination>
+    </div>
+
+    <div v-else>
+     <v-pagination
+      v-model="Apage"
       :length="Apage"
-    ></v-pagination>
+     ></v-pagination>
+    </div>
+
 </div>
 </template>
 
 <script>
-import { computed } from '@vue/composition-api'
+import { computed, ref } from '@vue/composition-api'
 
 export default {
     name:'Pagination',
     props:{
-        page:Number
+        items:Number
     },
 
     setup(props){
+      const count = ref(1)
 
-      const Apage = computed(()=> Math.floor(props.page/9) + 1)
+      const Apage = computed(()=> {
+        let page = props.items
+
+        return Math.floor(page/9) + 1
+        })
       
-      return { Apage }
+      return { Apage, count }
      }
     }
 

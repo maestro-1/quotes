@@ -29,9 +29,9 @@
       </v-container>
     </div>
 
-    <!-- <p>{{pageNumber}}</p> -->
+    <!-- <p>{{state.quotes.length}}</p> -->
 
-    <pagination :page='state.quotes.length'></pagination>
+    <pagination :items='state.quotes.length'></pagination>
 
   </div>
 </template>
