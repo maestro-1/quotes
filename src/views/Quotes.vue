@@ -13,23 +13,22 @@
       <v-container >
         <v-row >
             <v-col
-            v-for='quotes in state.quotes' 
-            :key='quotes.id'
+            v-for='(quotes, index) in state.quotes' 
+            :key='index'
             cols="6"
             md="4"
             >
             <cards 
                 class="pa-2"
-                :id_="quotes.id"
+                :id_="index"
                 :quotes="quotes.quote"
                 :author="quotes.author"
+                :deletePost="deletePost"
             ></cards>
             </v-col>
         </v-row>
       </v-container>
     </div>
-
-    <!-- <p>{{state.quotes.length}}</p> -->
 
     <pagination :items='state.quotes.length'></pagination>
 
@@ -59,13 +58,15 @@ export default {
          },
         ]
       })
-      
-      // const pageNumber = 
 
       const newEntry = entry => {
         state.quotes.push(entry)
       }
-      return { state, newEntry }
+
+      const deletePost = (index) => {
+        state.quotes.splice(index,1)      
+      } 
+      return { state, newEntry, deletePost }
   }
 
 };
