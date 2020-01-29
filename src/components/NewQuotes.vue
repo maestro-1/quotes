@@ -29,7 +29,7 @@ export default {
 
       const post = () => {
         emit('newQuote', { author:state.author, quote:state.quote})
-        submit.value = !submit.igio
+        submit.value = !submit.value
         setTimeout(()=>{
           state.author = '',
           state.quote = ''
